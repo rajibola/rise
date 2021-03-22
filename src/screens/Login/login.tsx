@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {Image, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
+import {Icon} from '../../assets/images';
 import {Input} from '../../components';
 import {Button} from '../../components/button';
-import {styles} from './styles';
-import Eye from '../../assets/images/eye.svg';
 import {wp} from '../../utils/layout';
+import {styles} from './styles';
 
 export const Login: React.FC<any> = props => {
   const [email, setEmail] = useState('');
@@ -22,7 +22,7 @@ export const Login: React.FC<any> = props => {
       <Input
         placeHolder="Password"
         onChangeText={setPassword}
-        icon={<Eye width={wp(24)} height={wp(15.74)} />}
+        icon={<Icon.Eye width={wp(24)} height={wp(15.74)} />}
         secureTextEntry={true}
       />
 
