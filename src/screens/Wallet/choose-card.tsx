@@ -1,14 +1,21 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {Icon} from '../../assets/images';
 import {Header} from '../../components';
 import {colors} from '../../constants';
+import {NavigationParamList} from '../../navigation';
 import {ChooseCardStyles as styles} from './styles';
 
-export const ChooseCard: React.FC<any> = props => {
+export type ChooseCardProps = {
+  navigation: ChooseCardNavigatonProps;
+};
+export type ChooseCardNavigatonProps = StackNavigationProp<NavigationParamList>;
+
+export const ChooseCard: React.FC<ChooseCardProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header title="Confirm Amount" backButton />
+      <Header title="Confirm Amount" backButton onPress={navigation.goBack} />
 
       <TouchableOpacity style={styles.list}>
         <View style={styles.leftContainer}>

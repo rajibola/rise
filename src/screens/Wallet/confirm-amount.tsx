@@ -1,12 +1,19 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Button, Header} from '../../components';
+import {NavigationParamList} from '../../navigation';
 import {ConfirmAmountStyles as styles} from './styles';
 
-export const ConfirmAmount: React.FC<any> = props => {
+export type ConfirmAmountProps = {
+  navigation: ConfirmAmountNavigatonProps;
+};
+export type ConfirmAmountNavigatonProps = StackNavigationProp<NavigationParamList>;
+
+export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header title="Confirm Amount" backButton />
+      <Header title="Confirm Amount" backButton onPress={navigation.goBack} />
       <Text style={styles.total}>
         <Text style={styles.naira}>₦ </Text>4,263.00
       </Text>
@@ -15,7 +22,11 @@ export const ConfirmAmount: React.FC<any> = props => {
       <SimpleList leftText="Processing fee (1.5%)" rightText="₦63.00" />
       <SimpleList leftText="AAmount in USD" rightText="$10.00" />
 
-      <Button title="Add ₦4,263" onPress={() => null} style={styles.button} />
+      <Button
+        title="Add ₦4,263"
+        onPress={() => navigation.navigate('ChooseCard')}
+        style={styles.button}
+      />
     </View>
   );
 };

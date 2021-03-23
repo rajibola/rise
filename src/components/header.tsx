@@ -6,16 +6,17 @@ import {HeaderStyles as styles} from './styles';
 
 export type HeaderProps = {
   title: string;
-  backButton?: boolean;
+  backButton?: boolean | (() => void);
+  onPress?: () => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({title, backButton}) => {
+export const Header: React.FC<HeaderProps> = ({title, backButton, onPress}) => {
   return (
     <View style={styles.header}>
       <View>
         {backButton && (
           <TouchableOpacity
-            onPress={() => null}
+            onPress={onPress}
             style={[styles.button, styles.iconContainer]}>
             <Icon.BackArrow color={colors.teal} />
           </TouchableOpacity>

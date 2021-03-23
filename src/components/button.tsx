@@ -10,9 +10,15 @@ export type Button = {
   secondary?: boolean;
 };
 
-export const Button: React.FC<Button> = ({title, style, secondary}) => {
+export const Button: React.FC<Button> = ({
+  title,
+  style,
+  secondary,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={[
         styles.button,
         style,

@@ -5,18 +5,17 @@
  * @format
  * @flow strict-local
  */
-
+import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {Login} from './src/screens/Login/login';
-import {
-  ChooseCard,
-  ConfirmAmount,
-  FundWallet,
-  Wallet,
-} from './src/screens/Wallet';
+import 'react-native-gesture-handler';
+import MainNavigator from './src/navigation';
 
 const App = () => {
-  return <ChooseCard />;
+  return (
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
+  );
 };
 
 export default App;

@@ -1,13 +1,20 @@
+import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Icon} from '../../assets/images';
 import {Button, Header} from '../../components';
+import {NavigationParamList} from '../../navigation';
 import {fundWalletStyles as styles} from './styles';
 
-export const FundWallet: React.FC<any> = props => {
+export type FundWalletScreenProps = {
+  navigation: FundWalletNavigatonProps;
+};
+export type FundWalletNavigatonProps = StackNavigationProp<NavigationParamList>;
+
+export const FundWallet: React.FC<FundWalletScreenProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Header title="Debit Card" backButton />
+      <Header title="Debit Card" backButton onPress={navigation.goBack} />
 
       <View style={styles.rectangle}>
         <Text style={styles.box}>Your Debit Card</Text>
@@ -40,7 +47,11 @@ export const FundWallet: React.FC<any> = props => {
         <Text style={styles.amount}>10.00</Text>
       </View>
 
-      <Button title="Add Money" onPress={() => null} style={styles.button} />
+      <Button
+        title="Add Money"
+        onPress={() => navigation.navigate('ConfirmAmount')}
+        style={styles.button}
+      />
     </View>
   );
 };
