@@ -9,6 +9,8 @@
 
 <hr />
 
+## Get the app here [APK file](https://github.com/rajibola/rise/releases/tag/0.1.0)
+
 ## Getting Started
 
 - Fork or Clone the repo, then set it up:
