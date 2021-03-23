@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {image} from '../assets/images';
+import {Icon} from '../assets/images';
+import {colors} from '../constants/colors';
 import {HeaderStyles as styles} from './styles';
 
 export type HeaderProps = {
@@ -16,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({title, backButton}) => {
           <TouchableOpacity
             onPress={() => null}
             style={[styles.button, styles.iconContainer]}>
-            <image.BackArrow />
+            <Icon.BackArrow color={colors.teal} />
           </TouchableOpacity>
         )}
       </View>

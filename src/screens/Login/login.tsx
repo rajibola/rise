@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import {Icon} from '../../assets/images';
-import {Input} from '../../components';
-import {Button} from '../../components/button';
+import {Button, Input} from '../../components';
 import {wp} from '../../utils/layout';
 import {styles} from './styles';
 

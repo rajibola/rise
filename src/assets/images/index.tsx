@@ -4,6 +4,7 @@ import Wallet from './wallet.svg';
 import Plus from './plus.svg';
 import Minus from './minus.svg';
 import Pause from './pause.svg';
+import ArrowRight from './arrow-right.svg';
 
 export const Icon = {
   Eye,
@@ -12,4 +13,5 @@ export const Icon = {
   Plus,
   Minus,
   Pause,
+  ArrowRight,
 };

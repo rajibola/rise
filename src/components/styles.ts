@@ -106,6 +106,7 @@ export const HeaderStyles = StyleSheet.create({
     height: hp(33),
     marginTop: hp(10),
     marginBottom: hp(19),
+    paddingHorizontal: wp(16),
   },
   button: {
     width: wp(33),
@@ -146,7 +147,7 @@ export const ButtonStyles = StyleSheet.create({
     height: hp(8),
   },
   button: {
-    height: hp(55),
+    maxHeight: hp(55),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(5),

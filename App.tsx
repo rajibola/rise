@@ -8,10 +8,10 @@
 
 import React from 'react';
 import {Login} from './src/screens/Login/login';
-import {ChooseCard, Wallet} from './src/screens/Wallet';
+import {ChooseCard, FundWallet, Wallet} from './src/screens/Wallet';
 
 const App = () => {
-  return <Wallet />;
+  return <FundWallet />;
 };
 
 export default App;
