@@ -1,9 +1,11 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
+import CurrencyInput from 'react-native-currency-input';
 import {Icon} from '../../assets/images';
 import {Button, Header} from '../../components';
 import {NavigationParamList} from '../../navigation';
+import {dollarConverter} from '../../utils/helpers';
 import {fundWalletStyles as styles} from './styles';
 
 export type FundWalletScreenProps = {
@@ -12,6 +14,8 @@ export type FundWalletScreenProps = {
 export type FundWalletNavigatonProps = StackNavigationProp<NavigationParamList>;
 
 export const FundWallet: React.FC<FundWalletScreenProps> = ({navigation}) => {
+  const [value, setValue] = React.useState(0);
+
   return (
     <View style={styles.container}>
       <Header title="Debit Card" backButton onPress={navigation.goBack} />
@@ -30,7 +34,15 @@ export const FundWallet: React.FC<FundWalletScreenProps> = ({navigation}) => {
 
       <View style={styles.amountInNaira}>
         <Text style={styles.amount}>₦</Text>
-        <Text style={styles.amount}>4,200.00</Text>
+        <CurrencyInput
+          keyboardType="number-pad"
+          onChangeValue={(e: number) => setValue(e)}
+          precision={2}
+          style={[styles.amount, {flex: 1, textAlign: 'right'}]}
+          value={value}
+          separator="."
+          delimiter=","
+        />
       </View>
 
       <View style={styles.rateContainer}>
@@ -44,12 +56,12 @@ export const FundWallet: React.FC<FundWalletScreenProps> = ({navigation}) => {
 
       <View style={[styles.amountInNaira, styles.margins]}>
         <Text style={styles.amount}>$</Text>
-        <Text style={styles.amount}>10.00</Text>
+        <Text style={styles.amount}>{dollarConverter(value)}</Text>
       </View>
 
       <Button
         title="Add Money"
-        onPress={() => navigation.navigate('ConfirmAmount')}
+        onPress={() => navigation.navigate('ConfirmAmount', {amount: value})}
         style={styles.button}
       />
     </View>

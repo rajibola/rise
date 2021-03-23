@@ -1,29 +1,56 @@
+import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Button, Header} from '../../components';
 import {NavigationParamList} from '../../navigation';
+import {dollarConverter, moneyFormater} from '../../utils/helpers';
 import {ConfirmAmountStyles as styles} from './styles';
 
 export type ConfirmAmountProps = {
   navigation: ConfirmAmountNavigatonProps;
+  route: ConfirmRouteProp;
 };
+
+export type ConfirmRouteProp = RouteProp<NavigationParamList, 'ConfirmAmount'>;
 export type ConfirmAmountNavigatonProps = StackNavigationProp<NavigationParamList>;
 
-export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({navigation}) => {
+export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({
+  navigation,
+  route,
+}) => {
+  const {amount} = route.params;
+  const formatedAmount = (amount: number) => {
+    const value = moneyFormater(amount);
+    const fee = moneyFormater(amount * 0.015);
+    const total = moneyFormater(amount + amount * 0.015);
+    return {value, fee, total};
+  };
+
+  const formatted = formatedAmount(amount);
   return (
     <View style={styles.container}>
       <Header title="Confirm Amount" backButton onPress={navigation.goBack} />
       <Text style={styles.total}>
-        <Text style={styles.naira}>₦ </Text>4,263.00
+        <Text style={styles.naira}>₦ </Text>
+        {formatted.total}
       </Text>
 
-      <SimpleList leftText="Amout added to wallet" rightText="₦4,200.00" />
-      <SimpleList leftText="Processing fee (1.5%)" rightText="₦63.00" />
-      <SimpleList leftText="AAmount in USD" rightText="$10.00" />
+      <SimpleList
+        leftText="Amout added to wallet"
+        rightText={`₦${formatted.value}`}
+      />
+      <SimpleList
+        leftText="Processing fee (1.5%)"
+        rightText={`₦${formatted.fee}`}
+      />
+      <SimpleList
+        leftText="Amount in USD"
+        rightText={`$${dollarConverter(amount)}`}
+      />
 
       <Button
-        title="Add ₦4,263"
+        title={`Add ₦${formatted.total}`}
         onPress={() => navigation.navigate('ChooseCard')}
         style={styles.button}
       />

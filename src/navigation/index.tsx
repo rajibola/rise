@@ -6,7 +6,7 @@ import {ChooseCard, ConfirmAmount, FundWallet, Wallet} from '../screens/Wallet';
 export type NavigationParamList = {
   Login: undefined;
   ChooseCard: undefined;
-  ConfirmAmount: undefined;
+  ConfirmAmount: {amount: number};
   FundWallet: undefined;
   Wallet: undefined;
 };

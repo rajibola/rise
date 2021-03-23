@@ -17,3 +17,11 @@ export const check = (text: string) => {
     return {color: colors.teal, background: colors.off_teal, sign: false};
   }
 };
+
+export const moneyFormater = (text: number) =>
+  text.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+
+export const dollarConverter = (text: number, rate: number = 420) =>
+  (text / rate).toFixed(2);
+
+export const nairaConverter = (text: number, rate: number = 420) => text * rate;
