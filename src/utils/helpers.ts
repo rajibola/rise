@@ -25,3 +25,10 @@ export const dollarConverter = (text: number, rate: number = 420) =>
   (text / rate).toFixed(2);
 
 export const nairaConverter = (text: number, rate: number = 420) => text * rate;
+
+export const formatedAmount = (amount: number) => {
+  const value = moneyFormater(amount);
+  const fee = moneyFormater(amount * 0.015);
+  const total = moneyFormater(amount + amount * 0.015);
+  return {value, fee, total};
+};

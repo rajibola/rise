@@ -1,31 +1,15 @@
-import {RouteProp} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Button, Header} from '../../components';
-import {NavigationParamList} from '../../navigation';
-import {dollarConverter, moneyFormater} from '../../utils/helpers';
+import {ConfirmAmountProps} from '../../types/types.d';
+import {dollarConverter, formatedAmount} from '../../utils/helpers';
 import {ConfirmAmountStyles as styles} from './styles';
-
-export type ConfirmAmountProps = {
-  navigation: ConfirmAmountNavigatonProps;
-  route: ConfirmRouteProp;
-};
-
-export type ConfirmRouteProp = RouteProp<NavigationParamList, 'ConfirmAmount'>;
-export type ConfirmAmountNavigatonProps = StackNavigationProp<NavigationParamList>;
 
 export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({
   navigation,
   route,
 }) => {
   const {amount} = route.params;
-  const formatedAmount = (amount: number) => {
-    const value = moneyFormater(amount);
-    const fee = moneyFormater(amount * 0.015);
-    const total = moneyFormater(amount + amount * 0.015);
-    return {value, fee, total};
-  };
 
   const formatted = formatedAmount(amount);
   return (

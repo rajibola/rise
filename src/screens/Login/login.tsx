@@ -1,17 +1,11 @@
-import {StackNavigationProp} from '@react-navigation/stack';
 import React, {useState} from 'react';
 import {Text, View} from 'react-native';
 import {Icon} from '../../assets/images';
 import {Button, Input} from '../../components';
 import {colors} from '../../constants';
-import {NavigationParamList} from '../../navigation';
+import {LoginScreenProps} from '../../types/types.d';
 import {wp} from '../../utils/layout';
 import {styles} from './styles';
-
-export type LoginScreenProps = {
-  navigation: LoginNavigatonProps;
-};
-export type LoginNavigatonProps = StackNavigationProp<NavigationParamList>;
 
 export const Login: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = useState('');

@@ -1,17 +1,11 @@
-import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {Text, View} from 'react-native';
 import CurrencyInput from 'react-native-currency-input';
 import {Icon} from '../../assets/images';
 import {Button, Header} from '../../components';
-import {NavigationParamList} from '../../navigation';
+import {FundWalletScreenProps} from '../../types/types.d';
 import {dollarConverter} from '../../utils/helpers';
 import {fundWalletStyles as styles} from './styles';
-
-export type FundWalletScreenProps = {
-  navigation: FundWalletNavigatonProps;
-};
-export type FundWalletNavigatonProps = StackNavigationProp<NavigationParamList>;
 
 export const FundWallet: React.FC<FundWalletScreenProps> = ({navigation}) => {
   const [value, setValue] = React.useState(0);
