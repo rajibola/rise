@@ -12,6 +12,7 @@ export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({
   const {amount} = route.params;
 
   const formatted = formatedAmount(amount);
+
   return (
     <View style={styles.container}>
       <Header title="Confirm Amount" backButton onPress={navigation.goBack} />
@@ -35,7 +36,11 @@ export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({
 
       <Button
         title={`Add ₦${formatted.total}`}
-        onPress={() => navigation.navigate('ChooseCard')}
+        onPress={() =>
+          navigation.navigate('ChooseCard', {
+            amount,
+          })
+        }
         style={styles.button}
       />
     </View>

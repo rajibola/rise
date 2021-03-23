@@ -1,9 +1,6 @@
-export const Data: {
-  title: string;
-  date: string;
-  amount: string;
-  status?: string;
-}[] = [
+import {DataTypes} from '../types/types.d';
+
+export const Data: DataTypes[] = [
   {
     title: 'Deposit',
     date: 'Apr 28, 2020',

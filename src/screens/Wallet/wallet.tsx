@@ -1,22 +1,21 @@
-import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
 import {ScrollView, Text, View} from 'react-native';
+import {shallowEqual, useSelector} from 'react-redux';
 import {Button, Card, Header, List} from '../../components';
-import {NavigationParamList} from '../../navigation';
-import {Data} from '../../utils/data';
+import {WalletScreenProps, WalletState} from '../../types/types.d';
 import {walletStyles as styles} from './styles';
 
-export type WalletScreenProps = {
-  navigation: WalletNavigatonProps;
-};
-export type WalletNavigatonProps = StackNavigationProp<NavigationParamList>;
-
 export const Wallet: React.FC<WalletScreenProps> = ({navigation}) => {
+  const {transactions}: WalletState = useSelector(
+    (state: WalletState) => state,
+    shallowEqual,
+  );
+
   return (
     <View style={styles.container}>
       <Header title="Wallet" />
-      <ScrollView>
-        <Card />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Card amount={transactions.balance} />
 
         <View style={styles.buttonContainer}>
           <Button
@@ -38,12 +37,13 @@ export const Wallet: React.FC<WalletScreenProps> = ({navigation}) => {
           <Text style={styles.viewAll}>View All</Text>
         </View>
 
-        {Data.map(a => (
+        {transactions.data.map((a, i) => (
           <List
             title={a.title}
             date={a.date}
             amount={a.amount}
             status={a.status}
+            key={i}
           />
         ))}
       </ScrollView>
