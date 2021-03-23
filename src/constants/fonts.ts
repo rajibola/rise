@@ -18,6 +18,12 @@ export const bold = {
 };
 
 export const fonts = {
+  40: {
+    fontSize: hp(40),
+    lineHeight: hp(48),
+    color: colors.dark,
+    ...bold,
+  },
   28: {
     fontSize: hp(28),
     lineHeight: hp(34),
@@ -30,6 +36,12 @@ export const fonts = {
     lineHeight: hp(28),
     color: colors.dark,
     ...semiBold,
+  },
+  20: {
+    fontSize: hp(20),
+    lineHeight: hp(26),
+    color: colors.dark,
+    ...regular,
   },
   17: {
     fontSize: hp(17),

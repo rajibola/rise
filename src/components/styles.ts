@@ -147,11 +147,10 @@ export const ButtonStyles = StyleSheet.create({
     height: hp(8),
   },
   button: {
-    maxHeight: hp(55),
+    height: hp(55),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(5),
     backgroundColor: colors.teal,
-    flex: 1,
   },
 });

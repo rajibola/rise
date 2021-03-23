@@ -7,6 +7,47 @@ export const row: ViewStyle = {
   alignItems: 'center',
 };
 
+export const ConfirmAmountStyles = StyleSheet.create({
+  button: {
+    position: 'absolute',
+    bottom: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
+    alignSelf: 'center',
+    width: '100%',
+    marginHorizontal: wp(19),
+    maxWidth: wp(308),
+  },
+  rightText: {
+    ...fonts[15],
+  },
+  leftText: {
+    ...fonts[15],
+    color: colors.light,
+  },
+  listContainer: {
+    height: hp(44),
+    borderBottomWidth: hp(0.5),
+    marginHorizontal: wp(24),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottomColor: colors.grey,
+  },
+  naira: {
+    ...fonts[20],
+    lineHeight: hp(48),
+  },
+  total: {
+    textAlign: 'center',
+    ...fonts[40],
+    marginBottom: hp(14),
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
+  },
+});
+
 export const fundWalletStyles = StyleSheet.create({
   button: {
     marginHorizontal: wp(47),
@@ -124,6 +165,7 @@ export const walletStyles = StyleSheet.create({
   },
   button: {
     maxWidth: wp(163.35),
+    flex: 1,
   },
 
   container: {
