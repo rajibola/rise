@@ -7,6 +7,7 @@ import {Header} from '../../components';
 import {colors} from '../../constants';
 import {fundWallet} from '../../redux/actionCreators';
 import {ChooseCardProps} from '../../types/types.d';
+import {formatedAmount} from '../../utils/helpers';
 import {ChooseCardStyles as styles} from './styles';
 
 export const ChooseCard: React.FC<ChooseCardProps> = ({navigation, route}) => {
@@ -15,7 +16,9 @@ export const ChooseCard: React.FC<ChooseCardProps> = ({navigation, route}) => {
   const handleAmount = async () => {
     await dispatch(fundWallet(route.params.amount));
     Alert.alert(
-      `You have succesfully added $${route.params.amount} to your balance`,
+      `You have succesfully added ₦${
+        formatedAmount(route.params.amount)?.value
+      } to your balance`,
     );
   };
 

@@ -82,7 +82,7 @@ export const ConfirmAmountStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
+    paddingTop: getStatusBarHeight(),
   },
 });
 

@@ -38,7 +38,7 @@ export const ConfirmAmount: React.FC<ConfirmAmountProps> = ({
         title={`Add ₦${formatted.total}`}
         onPress={() =>
           navigation.navigate('ChooseCard', {
-            amount,
+            amount: amount,
           })
         }
         style={styles.button}
