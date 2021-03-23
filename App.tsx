@@ -16,7 +16,7 @@ import {
 } from './src/screens/Wallet';
 
 const App = () => {
-  return <ConfirmAmount />;
+  return <ChooseCard />;
 };
 
 export default App;

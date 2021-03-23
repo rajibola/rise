@@ -7,6 +7,44 @@ export const row: ViewStyle = {
   alignItems: 'center',
 };
 
+export const ChooseCardStyles = StyleSheet.create({
+  supportText: {
+    ...fonts[11],
+    color: colors.light,
+  },
+  payText: {
+    ...fonts[15],
+    marginBottom: hp(7),
+  },
+  leftContainer: {
+    ...row,
+  },
+  iconContainer: {
+    width: wp(42),
+    height: wp(42),
+    borderRadius: wp(42),
+    backgroundColor: colors.off_teal,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: wp(16),
+  },
+  list: {
+    borderBottomWidth: hp(1),
+    borderBottomColor: colors.off_grey,
+    height: hp(80),
+    ...row,
+    marginLeft: wp(26),
+    justifyContent: 'space-between',
+    marginRight: wp(5.88),
+  },
+
+  container: {
+    flex: 1,
+    backgroundColor: 'white',
+    paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
+  },
+});
+
 export const ConfirmAmountStyles = StyleSheet.create({
   button: {
     position: 'absolute',
